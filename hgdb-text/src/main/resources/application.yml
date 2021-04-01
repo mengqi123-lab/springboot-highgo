@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.highgo.jdbc.Driver
+    url: jdbc:highgo://192.168.80.141:5866/highgo
+    username: sysdba
+    password: High@123
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-log-stats-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 'x'
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      filter:
+        stat:
+          log-slow-sql: true
+mybatis:
+  # model 的包
+  type-aliases-package: com.hg.model
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
